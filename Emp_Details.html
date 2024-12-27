@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td><label for="gender">Gender</label></td>
-            <td>  <input type="text" id="gender"></td>
+            <td>  <input type="text" id="gender" name="Gender"></td>
         </tr>
         <tr>
             <td><label for="dob">Date of Birth</label></td>
@@ -60,6 +60,21 @@
     <div class="btn">
         <input type="SUBMIT"  style="background-color: greenyellow;">
     </div>
+    <script>
+        // Function to determine and set gender based on title
+        document.getElementById("title").addEventListener("input", function () {
+            const title = this.value.trim();
+            const genderField = document.getElementById("gender");
+
+            if (title.toLowerCase() === "mr") {
+                genderField.value = "Male";
+            } else if (title.toLowerCase() === "ms" || title.toLowerCase() === "mrs") {
+                genderField.value = "Female";
+            } else {
+                genderField.value = ""; // Clear gender field for invalid input
+            }
+        });
+    </script>
     
 </body>
 </html>
